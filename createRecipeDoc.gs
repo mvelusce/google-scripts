@@ -38,9 +38,9 @@ function createRecipeDoc(e) {
   var prep_time = "test";//e.values[6];
   var calories = "test";//e.values[7];
   
-  var ingredients = "test";//e.values[8];
-  var directions = "test";//e.values[9];
-  var notes = "test";//e.values[10];
+  var ingredients = "1\n2\n3";//e.values[8];
+  var directions = "4\n5\n6\n7";//e.values[9];
+  var notes = e.values[10];
   
   var folder = DriveApp.getFolderById(folders[category]);
   var docId = DriveApp.getFileById(templates[category]).makeCopy(name, folder).getId();
@@ -57,8 +57,10 @@ function createRecipeDoc(e) {
   body.replaceText("##prep_time##", prep_time);
   body.replaceText("##calories##", calories);
   
-  body.replaceText("##ingredients##", ingredients);//TODO make a list
-  body.replaceText("##directions##", directions);//TODO make a numbered list
+  var endIngredients = insertAsList(body, ingredients, 0, DocumentApp.GlyphType.BULLET);
+  
+  insertAsList(body, directions, endIngredients, DocumentApp.GlyphType.NUMBER);
+  
   body.replaceText("##notes##", notes);
   
   doc.saveAndClose();
@@ -81,4 +83,17 @@ function insertStars(body, stars) {
     whiteStars += whiteStar;
   }
   body.replaceText("##stars##", blackStars + whiteStars);
+}
+
+function insertAsList(body, content, offset, glyphType) {
+  var l = content.split("\n");
+  var el = body.getListItems()[offset];
+  el.setText(l[0]);
+  el.setGlyphType(glyphType);
+  for (var i=1; i<l.length; i++) {
+    var nextElem = body.getChildIndex(body.getListItems()[offset + i-1].getNextSibling())
+    var el = body.insertListItem(nextElem, l[i]);
+    el.setGlyphType(glyphType);
+  }
+  return l.length;
 }
