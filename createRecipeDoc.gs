@@ -95,10 +95,8 @@ function insertStars(body, stars) {
 
 function insertAsList(body, content, offset, glyphType) {
   var l = content.split("\n").filter(isEmpty);
-  Logger.log("AAAAAAAAAAAAA " + l.length);
   if (l.length == 0) { return 0; }
   
-  Logger.log("AAAAAAAAAAAAA " + l[0]);
   var el = body.getListItems()[offset];
   el.setText(l[0]);
   el.setGlyphType(glyphType);
