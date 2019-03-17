@@ -42,9 +42,9 @@ function createRecipeDoc(e) {
   var directions = e.values[9] == ""? "Istruzione": e.values[9];
   var notes = e.values[10] == ""? "Appunti": e.values[10];
   
-  Logger.log("Category: {}", category);
-  Logger.log("Folder: {}", folders[category]);
-  Logger.log("Template: {}", templates[category]);
+  Logger.log("Category: " + category);
+  Logger.log("Folder: " + folders[category]);
+  Logger.log("Template: " + templates[category]);
   
   var folder = DriveApp.getFolderById(folders[category]);
   var docId = DriveApp.getFileById(templates[category]).makeCopy(name, folder).getId();
@@ -94,14 +94,25 @@ function insertStars(body, stars) {
 }
 
 function insertAsList(body, content, offset, glyphType) {
-  var l = content.split("\n");
+  var l = content.split("\n").filter(isEmpty);
+  Logger.log("AAAAAAAAAAAAA " + l.length);
+  if (l.length == 0) { return 0; }
+  
+  Logger.log("AAAAAAAAAAAAA " + l[0]);
   var el = body.getListItems()[offset];
   el.setText(l[0]);
   el.setGlyphType(glyphType);
+  
   for (var i=1; i<l.length; i++) {
+    
     var nextElem = body.getChildIndex(body.getListItems()[offset + i-1].getNextSibling())
     var el = body.insertListItem(nextElem, l[i]);
     el.setGlyphType(glyphType);
   }
+  Logger.log("N. of elements added: " + l.length);
   return l.length;
+}
+
+function isEmpty(x) {
+  return x != "";
 }
