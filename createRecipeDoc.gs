@@ -29,18 +29,18 @@ var blackStar = '\u2605';
 
 function createRecipeDoc(e) {
   
-  var name = e.values[1];
-  var category = e.values[2];
-  var base_ingredient = e.values[3];
+  var name = e.values[1] == ""? "Nome ricetta": e.values[1];
+  var category = e.values[2] == ""? "Varie": e.values[2];
+  var base_ingredient = e.values[3] == ""? "Ingrediente principale": e.values[3];
   
-  var stars = e.values[4];
-  var servings = e.values[5];
-  var prep_time = e.values[6];
-  var calories = e.values[7];
+  var stars = e.values[4] == ""? 3: e.values[4];
+  var servings = e.values[5] == ""? "X": e.values[5];
+  var prep_time = e.values[6] == ""? "X": e.values[6];
+  var calories = e.values[7] == ""? "X": e.values[7];
   
-  var ingredients = e.values[8];
-  var directions = e.values[9];
-  var notes = e.values[10];
+  var ingredients = e.values[8] == ""? "Ingrediente": e.values[8];
+  var directions = e.values[9] == ""? "Istruzione": e.values[9];
+  var notes = e.values[10] == ""? "Appunti": e.values[10];
   
   Logger.log("Category: {}", category);
   Logger.log("Folder: {}", folders[category]);
