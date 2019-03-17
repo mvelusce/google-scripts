@@ -29,17 +29,17 @@ var blackStar = '\u2605';
 
 function createRecipeDoc(e) {
   
-  var name = "test";//e.values[1];
-  var category = "Antipasti";//e.values[2];
-  var base_ingredient = "test";//e.values[3];
+  var name = e.values[1];
+  var category = e.values[2];
+  var base_ingredient = e.values[3];
   
-  var stars = 5;//e.values[4];
-  var servings = "test";//e.values[5];
-  var prep_time = "test";//e.values[6];
-  var calories = "test";//e.values[7];
+  var stars = e.values[4];
+  var servings = e.values[5];
+  var prep_time = e.values[6];
+  var calories = e.values[7];
   
-  var ingredients = "1\n2\n3";//e.values[8];
-  var directions = "4\n5\n6\n7";//e.values[9];
+  var ingredients = e.values[8];
+  var directions = e.values[9];
   var notes = e.values[10];
   
   var folder = DriveApp.getFolderById(folders[category]);
