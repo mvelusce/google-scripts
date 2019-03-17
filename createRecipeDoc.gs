@@ -42,6 +42,10 @@ function createRecipeDoc(e) {
   var directions = e.values[9];
   var notes = e.values[10];
   
+  Logger.log("Category: {}", category);
+  Logger.log("Folder: {}", folders[category]);
+  Logger.log("Template: {}", templates[category]);
+  
   var folder = DriveApp.getFolderById(folders[category]);
   var docId = DriveApp.getFileById(templates[category]).makeCopy(name, folder).getId();
   
@@ -57,9 +61,13 @@ function createRecipeDoc(e) {
   body.replaceText("##prep_time##", prep_time);
   body.replaceText("##calories##", calories);
   
-  var endIngredients = insertAsList(body, ingredients, 0, DocumentApp.GlyphType.BULLET);
-  
-  insertAsList(body, directions, endIngredients, DocumentApp.GlyphType.NUMBER);
+  var ingredientsOffset = 1;
+  if (ingredients != "") {
+    ingredientsOffset = insertAsList(body, ingredients, 0, DocumentApp.GlyphType.BULLET);
+  }
+  if (directions != "") {
+    insertAsList(body, directions, ingredientsOffset, DocumentApp.GlyphType.NUMBER);
+  }
   
   body.replaceText("##notes##", notes);
   
