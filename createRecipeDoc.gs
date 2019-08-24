@@ -14,14 +14,14 @@ var folders = {
 
 var templates = {
   "Antipasti": "1Pbd0JdAhUJJkFqh4ejUoAEoO8CJppilCRq3kDro2W8E",
-  "Salse": "1Pbd0JdAhUJJkFqh4ejUoAEoO8CJppilCRq3kDro2W8E",
+  "Salse": "1sW9OdPpAQ0ErlNAzqGI1U_pW3kx6FNxC20wT1I_UTm8",
   "Primi": "1ybcKx80KS3-WM3nun24Inzr4ux-28GSgwA6XpT0esLs",
   "Secondi": "1wAD_QNn6CmQ1xfrCotejI_ZKoUUA_-pSNCZWzxQU0fE",
-  "Contorni": "1wAD_QNn6CmQ1xfrCotejI_ZKoUUA_-pSNCZWzxQU0fE",
-  "Piatti unici": "1ybcKx80KS3-WM3nun24Inzr4ux-28GSgwA6XpT0esLs",
+  "Contorni": "1EHIeq90Dx36-aHhb9bOzxjaAb1NBIUOJR3STLwUhlH4",
+  "Piatti unici": "1zkXesodYhx3zKoIgULt1l9g0RM5snEmLv6ieQ76Ie28",
   "Dessert": "1HvMBoJzR3XWt9KGHO6WItp3-f0YCmwt3ZpsjGjwGMRs",
-  "Liquori": "1HvMBoJzR3XWt9KGHO6WItp3-f0YCmwt3ZpsjGjwGMRs",
-  "Varie": "1wAD_QNn6CmQ1xfrCotejI_ZKoUUA_-pSNCZWzxQU0fE"
+  "Liquori": "1cVnRmWioGAB-pBclVroq_VJly6MiSmTqKvHrlZVW7_Q",
+  "Varie": "1ywFRndCFW69c6LBIM8MofgT-IMZCrFmMQ4foX0sqw3A"
 };
 
 var whiteStar = '\u2606';
